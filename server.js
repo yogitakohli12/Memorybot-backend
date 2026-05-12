@@ -20,7 +20,6 @@ const healthRoutes = require("./routes/health");
 const usageRoutes = require("./routes/usage");
 
 const app = express();
-app.use(express.json());
 // Connect to MongoDB
 connectDB();
 
@@ -34,7 +33,13 @@ if (!fs.existsSync(audioDir)) fs.mkdirSync(audioDir, { recursive: true });
 // Middleware
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "http://127.0.0.1:3000",
+      process.env.CLIENT_URL,
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
