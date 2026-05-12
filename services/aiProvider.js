@@ -217,7 +217,7 @@ const runWithFailover = async (action) => {
   let summary;
   if (allUnconfigured) {
     summary =
-      "No AI provider is configured. Open backend/.env (NOT .env.example) and set GROQ_API_KEY (free, no card, works in India): https://console.groq.com/keys — then restart the server.";
+      "No AI provider is configured. Open backend/.env (NOT .env) and set GROQ_API_KEY (free, no card, works in India): https://console.groq.com/keys — then restart the server.";
   } else if (allInCooldown) {
     summary =
       "All AI providers are in a short cooldown after recent network failures. Wait ~20 seconds and try again. If it still fails, the underlying issue is your network, not the keys — see the tip below.";

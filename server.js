@@ -20,7 +20,7 @@ const healthRoutes = require("./routes/health");
 const usageRoutes = require("./routes/usage");
 
 const app = express();
-
+app.use(express.json());
 // Connect to MongoDB
 connectDB();
 

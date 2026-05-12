@@ -29,15 +29,15 @@ const printBanner = async () => {
 
   // .env file presence check
   const envPath = path.join(__dirname, "..", ".env");
-  const envExamplePath = path.join(__dirname, "..", ".env.example");
+  const envExamplePath = path.join(__dirname, "..", ".env");
   const hasEnv = fs.existsSync(envPath);
   const hasExample = fs.existsSync(envExamplePath);
   if (!hasEnv && hasExample) {
     console.log(
-      c.red("⚠  No .env file found, only .env.example — your keys are NOT loaded.")
+      c.red("⚠  No .env file found, only .env — your keys are NOT loaded.")
     );
     console.log(
-      c.yellow("   Run:  copy .env.example .env   (Windows)  or  cp .env.example .env  (mac/linux)")
+      c.yellow("   Run:  copy .env .env   (Windows)  or  cp .env .env  (mac/linux)")
     );
   } else if (!hasEnv) {
     console.log(c.red("⚠  No .env file found. Create one with your API keys."));
